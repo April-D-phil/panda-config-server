@@ -1,0 +1,19 @@
+server:
+  port: 8015 #运行时占用的端口
+spring:
+  application:
+    name: panda-config #服务名
+  security: #配置中心加密,服务需要获取配置时必须有用户名和密码
+    user:
+      name: admin 
+      password: admin
+  profiles:
+    active: git #配置文件存放方式
+  cloud: 
+    config: 
+      server: 
+        git: 
+          uri: http://192.168.3.22/phil/panda-config-files.git #这是我本地在另外一台手提(系统为centos7)，搭建的gitlab代码托管服务器
+          username: yourEmail
+          password: yourPassword
+          search-paths: /
